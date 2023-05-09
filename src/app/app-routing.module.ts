@@ -16,6 +16,11 @@ export const routes: Routes = [
       .then(m => m.PagesModule),
   },
   {
+    path: 'videopages',
+    loadChildren: () => import('./videopages/videopages.module')
+      .then(m => m.VideoPagesModule),
+  },
+  {
     path: 'auth',
     component: NbAuthComponent,
     children: [
@@ -45,8 +50,8 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages' },
+  { path: '', redirectTo: 'videopages', pathMatch: 'full' },
+  { path: '**', redirectTo: 'videopages' },
 ];
 
 const config: ExtraOptions = {
