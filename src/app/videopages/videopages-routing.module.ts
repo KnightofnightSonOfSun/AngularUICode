@@ -5,11 +5,18 @@ import { VideoPagesComponent } from './videopages.component';
 import { DashboardComponent } from '../pages/dashboard/dashboard.component';
 import { ECommerceComponent } from '../pages/e-commerce/e-commerce.component';
 import { NotFoundComponent } from '../pages/miscellaneous/not-found/not-found.component';
+import { VideoplatformComponent } from './videoplatform/videoplatform.component';
 
 const routes: Routes = [{
   path: '',
   component: VideoPagesComponent,
   children: [
+    {
+      path: 'main',
+      loadChildren: () => import('./videoplatform/videoplatform.module')
+      .then(m => m.VideoPlatformModule),
+      component: VideoplatformComponent,
+    },
     {
       path: 'dashboard',
       component: ECommerceComponent,
